@@ -1,0 +1,394 @@
+/* ==========================================================================
+  Floats
+  If you need to float something but you still want the object to remain
+  reusable, consider using a class to create the float rather than baking
+  it directly into the object. This allows objects to be used in more ways
+========================================================================== */
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+/**
+ * Make a parent relative. This is useful when you
+ * need a child to be absolutely be position relative
+ * to this element but you don't necessarily want the parent
+ * object to always be relative
+ */
+
+.parent,
+.is-parent {
+  position: relative;
+}
+
+/**
+ * Contain floats
+ *
+ * Make an element expand to contain floated children.
+ * Uses pseudo-elements (micro clearfix).
+ *
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of the
+ *    element.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/* ==========================================================================
+  Display Utilities
+========================================================================== */
+
+/**
+ * New block formatting context
+ *
+ * This affords some useful properties to the element. It won't wrap under
+ * floats. Will also contain any floated children.
+
+ * N.B. This will clip overflow. Use the alternative method below if this is
+ * problematic.
+ */
+
+.bfc,
+.nbfc {
+  overflow: hidden;
+}
+
+/**
+ * New block formatting context (alternative)
+ *
+ * Alternative method when overflow must not be clipped.
+ *
+ * 1. Create a new block formatting context (NBFC).
+ * 2. Avoid shrink-wrap behaviour of table-cell.
+ *
+ * N.B. This breaks down in some browsers when elements within this element
+ * exceed its width.
+ */
+
+.nbfc-alt {
+  display: table-cell; /* 1 */
+  width: 10000px; /* 2 */
+}
+
+/**
+ * Make a block span the full width regardless of previous styles
+ */
+
+.full {
+  width: 100% !important;
+}
+
+/**
+ * Center a block. The block will require a width for this to work
+ */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Make a block fixed positioned. Useful for JS to make an element
+ * fixed, like the overlay
+ */
+.is-fixed {
+  position: fixed !important;
+}
+
+/**
+ * Adds a checkered transparent background like photoshop
+ */
+
+.transparent {
+  background: bg-url('transparent-grid.png');
+}
+
+/**
+ * Vertically align content using display-table
+ */
+
+.align-middle {
+  display: table;
+  .align-middle__content {
+    display: table-cell;
+    vertical-align: middle;
+    margin-top: -2px
+  }
+}
+
+.align-top {
+  vertical-align: top;
+}
+
+/**
+ * Media block. This is a common pattern of a block of variable-width text
+ * and media to sits to the left or right.
+ */
+
+.mb,
+.media-block {
+  &.mb--reverse,
+  &.mb--right,
+  &.reverse {
+    .mb__media,
+    .media {
+      float: right;
+    }
+  }
+  .mb__media,
+  .media {
+    float: left;
+  }
+  .mb__content,
+  .content {
+    overflow: hidden;
+  }
+}
+
+/* ==========================================================================
+  Grid Utilities
+========================================================================== */
+
+// https://raw.github.com/stubbornella/oocss/master/core/grid/grids.css
+.unit{float:left;}
+.unitRight{float:right;}
+.size1of1{float:none;}
+.size1of2{width:50%;}
+.size1of3{width:33.33333%;}
+.size2of3{width:66.66666%;}
+.size1of4{width:25%;}
+.size3of4{width:75%;}
+.size1of5{width:20%;}
+.size2of5{width:40%;}
+.size3of5{width:60%;}
+.size4of5{width:80%;}
+
+/* ==========================================================================
+  JavaScript Utilities
+========================================================================== */
+
+/**
+ * Adding this class to an element is usually
+ * for JavaScript widgets that toggle content
+ */
+
+.hide-children > .child {
+  display: none;
+}
+
+/**
+ * This class is used for animations that occur when
+ * scrolling down the page. Apply this class to an
+ * element and the waypoints component will remove
+ * it and trigger the animation
+ */
+
+.is-paused {
+  -webkit-animation-play-state: paused !important;
+  -moz-animation-play-state: paused !important;
+  -o-animation-play-state: paused !important;
+  animation-play-state: paused !important;
+}
+
+/**
+ * Only show an element if javascript is disabled
+ */
+
+.no-js-only {
+  .js & {
+    @extend .is-hidden;
+  }
+}
+
+/**
+ * Only show an element if javascript is enabled
+ */
+
+.js-only {
+  .no-js & {
+    @extend .is-hidden;  
+  }
+}
+
+/* ==========================================================================
+  z-index helpers
+  You should be able to use these classes in most cases when you need to 
+  apply z-index. This makes it easier to debug any issues you're having
+========================================================================== */
+
+@for $i from 0 through 5 {
+  .zi-#{$i} {
+    position: relative;
+    z-index: $i;
+  }
+}
+
+/* ==========================================================================
+  Display utilities
+========================================================================== */
+
+/**
+ * Display-type utilities
+ */
+
+.inline {
+    display: inline !important;
+}
+
+.inline-block,
+.ib {
+    display: inline-block !important;
+}
+
+.block {
+    display: block !important;
+}
+
+/**
+ * Don't include the padding and border as part of the width
+ */
+
+.border-box {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * Completely remove from the flow and screen readers.
+ */
+
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+
+.is-vishidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/**
+ * Control visibility without affecting flow.
+ */
+
+.is-visible {
+    visibility: visible;
+}
+
+.is-invisible {
+    visibility: hidden;
+}
+
+/* ==========================================================================
+  States utilities
+========================================================================== */
+
+/**
+ * Indicate that interaction will result in an action.
+ *
+ * Commonly toggled via JavaScript.
+ */
+
+.is-actionable {
+    cursor: pointer;
+}
+
+.is-draggable {
+    cursor: move;
+}
+
+.is-disabled {
+    cursor: default;
+}
+
+/* ==========================================================================
+   Text utilities
+   ========================================================================== */
+
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+
+.text-truncate {
+    max-width: 100%; /* 1 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal; /* 2 */
+}
+
+/**
+ * Word breaking
+ *
+ * Break strings when their length exceeds the width of their container.
+ */
+
+.text-break {
+    word-break: break-all;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Horizontal text alignment
+ */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ==========================================================================
+  Link utilities
+========================================================================== */
+
+.link-block {
+  display: block;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &:hover .title-2 {
+    color: $light-green;
+  }
+}
