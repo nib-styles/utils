@@ -49,6 +49,14 @@
   clear: both;
 }
 
+/**
+ * For clearing floats. Sometimes useful.
+ */
+
+.clear {
+  clear: both;
+}
+
 /* ==========================================================================
   Display Utilities
 ========================================================================== */
@@ -291,6 +299,18 @@
 }
 
 /**
+ * Useful for creating overlays
+ */
+
+.stretch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
  * Control visibility without affecting flow.
  */
 
@@ -391,4 +411,13 @@
   &:hover .title-2 {
     color: $light-green;
   }
+}
+
+/**
+ * Reset an anchor to appear as text
+ */
+
+.link-reset {
+  text-decoration: none;
+  color: inherit;
 }
