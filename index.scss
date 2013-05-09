@@ -61,6 +61,12 @@
   Display Utilities
 ========================================================================== */
 
+@each $side in top, right, bottom, left {
+  .no-#{$side}-border {
+    border-#{$side}: none !important;
+  }
+}
+
 /**
  * New block formatting context
  *
@@ -198,6 +204,19 @@
   display: none;
 }
 
+.u-hideWhenParentSelected {
+  .is-selected > & {
+    display: none !important;
+  }
+}
+
+.u-showWhenParentSelected {
+  .is-selected > & {
+    display: block !important;
+  }
+  display: none !important;
+}
+
 /**
  * This class is used for animations that occur when
  * scrolling down the page. Apply this class to an
@@ -228,13 +247,32 @@
 
 .js-only {
   .no-js & {
-    @extend .is-hidden;  
+    @extend .is-hidden;
+  }
+}
+
+/**
+ * Make an element transparent with a fallback
+ * for browsers that don't support opacity.
+ * This is common used when fading an element in
+ */
+
+.is-transparent {
+  opacity: 0;
+  .no-opacity & {
+    visibility: hidden;
+  }
+  &.is-visible {
+    opacity: 1;
+    .no-opacity & {
+      visibility: visible;
+    }
   }
 }
 
 /* ==========================================================================
   z-index helpers
-  You should be able to use these classes in most cases when you need to 
+  You should be able to use these classes in most cases when you need to
   apply z-index. This makes it easier to debug any issues you're having
 ========================================================================== */
 
@@ -342,6 +380,13 @@
 
 .is-disabled {
     cursor: default;
+}
+
+.is-unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* ==========================================================================
