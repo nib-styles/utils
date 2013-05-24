@@ -389,6 +389,19 @@
   user-select: none;
 }
 
+.is-waiting {
+  @include transition(opacity 250ms linear);
+  @include disable-selection;
+  opacity: 0.5;
+  @include after {
+    @extend .stretch;
+  }
+}
+
+.is-clickthrough {
+  pointer-events: none;
+}
+
 /* ==========================================================================
    Text utilities
    ========================================================================== */
