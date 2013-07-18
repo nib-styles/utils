@@ -108,6 +108,14 @@
 }
 
 /**
+ * Make content unable to break out of it's container
+ */
+
+.contained {
+  max-width: 100%;
+}
+
+/**
  * Center a block. The block will require a width for this to work
  */
 .center {
