@@ -303,7 +303,7 @@
 /**
  * Completely remove from the flow and screen readers.
  */
-.is-hidden, .js .no-js-only, .no-js .js-only {
+.is-hidden, .hidden, .js .no-js-only, .no-js .js-only {
   display: none !important;
   visibility: hidden !important; }
 
