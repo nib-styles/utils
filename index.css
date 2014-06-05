@@ -101,6 +101,12 @@
   width: 100% !important; }
 
 /**
+ * Make content unable to break out of it's container
+ */
+.contained {
+  max-width: 100%; }
+
+/**
  * Center a block. The block will require a width for this to work
  */
 .center {
@@ -178,10 +184,13 @@
   width: 33.33333%; }
 
 .size2of3 {
-  width: 66.66666%; }
+  width: 66.66667%; }
 
 .size1of4 {
   width: 25%; }
+
+.size2of4 {
+  width: 50%; }
 
 .size3of4 {
   width: 75%; }
@@ -197,6 +206,174 @@
 
 .size4of5 {
   width: 80%; }
+
+.size1of6 {
+  width: 16.66667%; }
+
+.size2of6 {
+  width: 33.33333%; }
+
+.size3of6 {
+  width: 50%; }
+
+.size4of6 {
+  width: 66.66667%; }
+
+.size5of6 {
+  width: 83.33333%; }
+
+.size1of7 {
+  width: 14.28571%; }
+
+.size2of7 {
+  width: 28.57143%; }
+
+.size3of7 {
+  width: 42.85714%; }
+
+.size4of7 {
+  width: 57.14286%; }
+
+.size5of7 {
+  width: 71.42857%; }
+
+.size6of7 {
+  width: 85.71429%; }
+
+.size1of8 {
+  width: 12.5%; }
+
+.size2of8 {
+  width: 25%; }
+
+.size3of8 {
+  width: 37.5%; }
+
+.size4of8 {
+  width: 50%; }
+
+.size5of8 {
+  width: 62.5%; }
+
+.size6of8 {
+  width: 75%; }
+
+.size7of8 {
+  width: 87.5%; }
+
+.size1of9 {
+  width: 11.11111%; }
+
+.size2of9 {
+  width: 22.22222%; }
+
+.size3of9 {
+  width: 33.33333%; }
+
+.size4of9 {
+  width: 44.44444%; }
+
+.size5of9 {
+  width: 55.55556%; }
+
+.size6of9 {
+  width: 66.66667%; }
+
+.size7of9 {
+  width: 77.77778%; }
+
+.size8of9 {
+  width: 88.88889%; }
+
+.size1of10 {
+  width: 10%; }
+
+.size2of10 {
+  width: 20%; }
+
+.size3of10 {
+  width: 30%; }
+
+.size4of10 {
+  width: 40%; }
+
+.size5of10 {
+  width: 50%; }
+
+.size6of10 {
+  width: 60%; }
+
+.size7of10 {
+  width: 70%; }
+
+.size8of10 {
+  width: 80%; }
+
+.size9of10 {
+  width: 90%; }
+
+.size1of11 {
+  width: 9.09091%; }
+
+.size2of11 {
+  width: 18.18182%; }
+
+.size3of11 {
+  width: 27.27273%; }
+
+.size4of11 {
+  width: 36.36364%; }
+
+.size5of11 {
+  width: 45.45455%; }
+
+.size6of11 {
+  width: 54.54545%; }
+
+.size7of11 {
+  width: 63.63636%; }
+
+.size8of11 {
+  width: 72.72727%; }
+
+.size9of11 {
+  width: 81.81818%; }
+
+.size10of11 {
+  width: 90.90909%; }
+
+.size1of12 {
+  width: 8.33333%; }
+
+.size2of12 {
+  width: 16.66667%; }
+
+.size3of12 {
+  width: 25%; }
+
+.size4of12 {
+  width: 33.33333%; }
+
+.size5of12 {
+  width: 41.66667%; }
+
+.size6of12 {
+  width: 50%; }
+
+.size7of12 {
+  width: 58.33333%; }
+
+.size8of12 {
+  width: 66.66667%; }
+
+.size9of12 {
+  width: 75%; }
+
+.size10of12 {
+  width: 83.33333%; }
+
+.size11of12 {
+  width: 91.66667%; }
 
 /* ==========================================================================
   JavaScript Utilities
