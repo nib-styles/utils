@@ -410,8 +410,13 @@
   bottom: 0;
 }
 
-.is-clickthrough {
+.is-clickthrough,
+.ignore-pointer-events {
   pointer-events: none;
+}
+
+.capture-pointer-events {
+  pointer-events: auto;
 }
 
 /* ==========================================================================
